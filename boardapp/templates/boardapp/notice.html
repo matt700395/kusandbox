@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+
+  <div class="elements-section-headline-wrap notice">
+    <div id="Hero" class="section detail">
+      <div class="w-layout-grid grid">
+        <div id="w-node-_7dda8885-ea4b-3585-181f-391edaf00c22-ae5f94eb" class="elements-headline-wrap">
+            <div class="sizejumbo-text">공지사항<br></div>
+          <p class="detail_page">전자 및 정보공학과 <br>비교과 프로그램 전체 공지사항</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="w-layout-grid blog1-grid">
+      <div id="w-node-_4cdac5a5-6ceb-cb09-5bb0-11da51d85b8a-ae5f94eb" class="blog1-headline-wrap detail_page">
+        <div class="size3-text">All Posts<br></div>
+        <a href="{% url 'boardapp:create' %}"><button><div>post</div></button></a>
+      </div>
+        {% for post in post_list %}
+          {% if post.type == 'notice' %}
+            {% include 'post.html' %}
+          {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+
+ <!-- <div class="row mt-2">
+          <div class="col-12">
+              <nav>
+                  <ul class="pagination justify-content-center">
+                      <h1> hello : {{post_list.has_previous}}</h1>
+                      {% if post_list.has_previous %}
+                      <li class="page-item">
+                          <a class="page-link" href="?p={{post_list.previous_page_number }}">h이전으로</a>
+                      </li>
+                      {% else %}
+                      <li class="page-item disabled">
+                          <a class="page-link" href="#">이전으로</a>
+                      </li>
+                      {% endif %}
+                      <li class="page-item">
+                          <a class="page-link" href="#">{{post_list.number}}/{{post_list.paginator.num_pages}}</a>
+                      </li>
+                      {% if post_list.has_next %}
+                      <li class="page-item">
+                          <a class="page-link" href="?p={{post_list.next_page_number }}">h다음으로</a>
+                      </li>
+                      {% else %}
+                      <li class="page-item disabled">
+                          <a class="page-link" href="#">다음으로</a>
+                      </li>
+                      {% endif %}
+                  </ul>
+              </nav>
+          </div>
+      </div>
+-->
+
+<div class="row mt-2">
+          <div class="col-12">
+              <nav>
+                  <ul class="pagination justify-content-center">
+                      <span class="page-item">
+                          <a class="page-link" href="{% url 'boardapp:notice' %}?p=1">1페이지</a>
+                      </span>
+                      <span class="page-item">
+                          <a class="page-link" href="{% url 'boardapp:notice' %}?p=2">2페이지</a>
+                      </span>
+                      <span class="page-item">
+                          <a class="page-link" href="{% url 'boardapp:notice' %}?p=3">3페이지</a>
+                      </span>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+</body>
+
+{% endblock %}

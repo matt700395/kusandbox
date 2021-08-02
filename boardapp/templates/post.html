@@ -1,0 +1,21 @@
+<div  class="detail_page detail_component">
+  <a href="{% url 'boardapp:detail' pk=post.pk%}" class="size4-link">{{post.title}}</a>
+  <div class="date_detail">
+    <div class="text-label big">게시일 :</div>
+    <div class="text-label date">{{post.created_at}}</div>
+    <div class="nav-kit-divider"></div>
+    <div class="text-label big">신청마감일 :</div>
+    <div class="text-label date">2020/12/31</div>
+    <div class="nav-kit-divider"></div>
+    <div class="text-label big">글쓴이 :</div>
+    <div class="text-label date">{{post.writer}}</div>
+  </div>
+  <div class="paragraph-70"> <h6>{{ post.temp | safe }}</h6></div>
+  <!--<div class="paragraph-70">{{post.summary | safe}} ...</div>-->
+
+  <div class="blog1-button-wrap">
+    <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'boardapp:detail' pk=post.pk%}" class="button-small register w-inline-block">
+      <div class="button-label">Read more</div><img src="images/Arrow2x.svg" alt="" class="button-arrow">
+    </a>
+  </div>
+</div>
