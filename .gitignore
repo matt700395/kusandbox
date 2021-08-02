@@ -84,3 +84,7 @@ db.sqlite3
 static
 
 staticfiles
+
+Dockerfile
+
+docker-compose.yml
